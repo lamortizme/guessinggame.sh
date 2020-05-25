@@ -14,16 +14,16 @@ question
 
 files=$(pwd | ls | wc -l)
 
-if [[ answer -eq files ]]
-	then
-		echo "You did it! Congratulations"
-	else
+until [[ answer -eq files ]]
+do
+
 		if [[ answer -gt files ]]
 			then 
 				echo "You entered $answer and it is too high. Try again!"
 			else
 				echo "You entered $answer and it is too low. Try again!"
 		fi
-fi
-
-echo "End game"
+question
+done
+echo "You did it! Congratulations"
+echo "This is the end of the game"
